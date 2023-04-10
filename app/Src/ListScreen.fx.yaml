@@ -1,0 +1,473 @@
+ListScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: |-
+        =If(First(SearchRecord).Value=MainSearchText.Text,UpdateContext({searchgroup:true});UpdateContext({storeinventorygroup:false}),UpdateContext({searchgroup:false});UpdateContext({storeinventorygroup:true})); ClearCollect(StockView,"List");ClearCollect(StoreInventory,"All")
+    Width: =Max(App.Width, App.DesignWidth)
+
+    "GridGallery As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        DisabledBorderColor: =GridGallery.BorderColor
+        DisabledFill: =GridGallery.Fill
+        Height: =920
+        HoverBorderColor: =GridGallery.BorderColor
+        HoverFill: =GridGallery.Fill
+        Items: =DashboardList
+        Layout: =Layout.Vertical
+        PressedBorderColor: =GridGallery.BorderColor
+        PressedFill: =GridGallery.Fill
+        TemplatePadding: =0
+        TemplateSize: =Min(96, Self.Height - 60)
+        Visible: =First(StockView).Value="Grid"
+        Y: =216
+        ZIndex: =1
+
+        Title4 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        NextArrow3 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =2
+
+        Separator3 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
+
+    "ListGallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        DisabledBorderColor: =ListGallery.BorderColor
+        DisabledFill: =ListGallery.Fill
+        Height: =920
+        HoverBorderColor: =ListGallery.BorderColor
+        HoverFill: =ListGallery.Fill
+        Items: =DashboardList
+        Layout: =Layout.Vertical
+        PressedBorderColor: =ListGallery.BorderColor
+        PressedFill: =ListGallery.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =Min(104, Self.Height - 60)
+        Visible: =First(StockView).Value="List"
+        Y: =216
+        ZIndex: =1
+
+        Title3 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        Subtitle2 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Status
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =Title3.Y + Title3.Height + 4
+            ZIndex: =2
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =3
+
+        Separator2 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
+    Group1 As group:
+        Height: =87
+        Width: =89.16417910447751
+        X: =110
+        Y: =129
+        ZIndex: =1
+
+        Rectangle3_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle3_1.Fill
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =87
+            HoverFill: =Rectangle3_1.Fill
+            OnSelect: =ClearCollect(StoreInventory,"All")
+            PressedFill: =Rectangle3_1.Fill
+            TabIndex: =0
+            Visible: =First(StoreInventory).Value="All"
+            Width: =89.16417910447751
+            X: =110
+            Y: =129
+            ZIndex: =7
+
+        TextBox1_13 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =If(First(StoreInventory).Value="All",RGBA(40, 141, 196, 1),RGBA(47,47,47,1))
+            Font: =Font.Lato
+            Height: =57
+            HoverBorderColor: =TextBox1_13.BorderColor
+            HoverColor: =TextBox1_13.Color
+            HoverFill: =TextBox1_13.Fill
+            OnSelect: =ClearCollect(StoreInventory,"All")
+            PressedBorderColor: =TextBox1_13.BorderColor
+            PressedColor: =TextBox1_13.Color
+            PressedFill: =TextBox1_13.Fill
+            Size: =25
+            Text: ="All"
+            Width: =65.402985074627
+            X: =126.597014925373
+            Y: =143.55223880597015
+            ZIndex: =8
+
+    Group2 As group:
+        Height: =87
+        Width: =240.95522388059703
+        X: =200
+        Y: =129
+        ZIndex: =2
+
+        Rectangle3 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle3.Fill
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =87
+            HoverFill: =Rectangle3.Fill
+            OnSelect: =ClearCollect(StoreInventory,"Stock")
+            PressedFill: =Rectangle3.Fill
+            TabIndex: =0
+            Visible: =First(StoreInventory).Value="Stock"
+            Width: =240.955223880597
+            X: =200
+            Y: =129
+            ZIndex: =9
+
+        TextBox1_15 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(153, 153, 153, 1)
+            Font: =Font.Lato
+            Height: =57
+            HoverBorderColor: =TextBox1_15.BorderColor
+            HoverColor: =TextBox1_15.Color
+            HoverFill: =TextBox1_15.Fill
+            OnSelect: =ClearCollect(StoreInventory,"Stock")
+            PressedBorderColor: =TextBox1_15.BorderColor
+            PressedColor: =TextBox1_15.Color
+            PressedFill: =TextBox1_15.Fill
+            Size: =14
+            Text: ="(low-high)"
+            Width: =115.850746268656
+            X: =317.641791044777
+            Y: =146.53731343283584
+            ZIndex: =10
+
+        TextBox1_14 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =If(First(StoreInventory).Value="Stock",RGBA(40, 141, 196, 1),RGBA(47,47,47,1))
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =55.955223880597
+            HoverBorderColor: =TextBox1_14.BorderColor
+            HoverColor: =TextBox1_14.Color
+            HoverFill: =TextBox1_14.Fill
+            OnSelect: =ClearCollect(StoreInventory,"Stock")
+            PressedBorderColor: =TextBox1_14.BorderColor
+            PressedColor: =TextBox1_14.Color
+            PressedFill: =TextBox1_14.Fill
+            Size: =25
+            Text: ="Stock"
+            Width: =113.38805970149201
+            X: =223.611940298508
+            Y: =145.0447761194029
+            ZIndex: =11
+
+    Rectangle2_4 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_4.Fill
+        Fill: =RGBA(47,61,75,1)
+        Height: =129
+        HoverFill: =Rectangle2_4.Fill
+        PressedFill: =Rectangle2_4.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =3
+
+    Rectangle2_5 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_5.Fill
+        Fill: =RGBA(240,240,240,1)
+        Height: =87
+        HoverFill: =Rectangle2_5.Fill
+        PressedFill: =Rectangle2_5.Fill
+        TabIndex: =0
+        Width: =640
+        Y: =129
+        ZIndex: =4
+
+    TextBox1_12 As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(128, 128, 128, 1)
+        Font: =Font.Lato
+        Height: =57
+        HoverBorderColor: =TextBox1_12.BorderColor
+        HoverColor: =TextBox1_12.Color
+        HoverFill: =TextBox1_12.Fill
+        PressedBorderColor: =TextBox1_12.BorderColor
+        PressedColor: =TextBox1_12.Color
+        PressedFill: =TextBox1_12.Fill
+        Size: =16
+        Text: ="Sort by"
+        Width: =84
+        X: =18
+        Y: =145.0447761194029
+        ZIndex: =5
+
+    GridViewIcon As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =35.5925925925926
+        HoverBorderColor: =ColorFade(GridViewIcon.BorderColor, 20%)
+        HoverFill: =ColorFade(GridViewIcon.Fill, 20%)
+        Image: ='thumbnail@3x'
+        PressedBorderColor: =ColorFade(GridViewIcon.BorderColor, -20%)
+        PressedFill: =ColorFade(GridViewIcon.Fill, -20%)
+        Visible: =First(StockView).Value="Grid"
+        Width: =35.5925925925926
+        X: =570.6543209876565
+        Y: =154
+        ZIndex: =12
+
+    Image2_2 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =35.5925925925926
+        HoverBorderColor: =ColorFade(Image2_2.BorderColor, 20%)
+        HoverFill: =ColorFade(Image2_2.Fill, 20%)
+        Image: ='tumbnailSelected@3x'
+        OnSelect: |-
+            =ClearCollect(StockView,"Grid");UpdateContext({stockgridview2:false});UpdateContext({stocklistview2:true});UpdateContext({stockgridview:true})
+        PressedBorderColor: =ColorFade(Image2_2.BorderColor, -20%)
+        PressedFill: =ColorFade(Image2_2.Fill, -20%)
+        Visible: =First(StockView).Value="List"
+        Width: =35.5925925925926
+        X: =570.6543209876565
+        Y: =154
+        ZIndex: =15
+
+    Group3 As group:
+        Height: =101.77611940298509
+        Width: =490.5
+        X: =115.5
+        Y: =16.4179104477612
+        ZIndex: =17
+
+        icon1_1 As icon.Search:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, .8)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon1_1.Fill
+            Height: =53
+            HoverBorderColor: =ColorFade(icon1_1.BorderColor, 20%)
+            HoverColor: =ColorFade(icon1_1.Color, 20%)
+            HoverFill: =icon1_1.Fill
+            Icon: =Icon.Search
+            OnSelect: |-
+                =UpdateContext({searchgroup:true});UpdateContext({storeinventorygroup:false});UpdateContext({productsearch:true});UpdateContext({productsearch:false})
+            PressedBorderColor: =ColorFade(icon1_1.BorderColor, -20%)
+            PressedColor: =ColorFade(icon1_1.Color, -20%)
+            PressedFill: =icon1_1.Fill
+            TabIndex: =0
+            Tooltip: =Navigate(MainScreen)
+            Visible: =storeinventorygroup
+            Width: =53
+            X: =553
+            Y: =41
+            ZIndex: =18
+
+        TextBox1_10 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            Height: =57
+            HoverBorderColor: =TextBox1_10.BorderColor
+            HoverColor: =TextBox1_10.Color
+            HoverFill: =TextBox1_10.Fill
+            PressedBorderColor: =TextBox1_10.BorderColor
+            PressedColor: =TextBox1_10.Color
+            PressedFill: =TextBox1_10.Fill
+            Size: =30
+            Text: ="Server Inventory"
+            Tooltip: =Navigate(MainScreen)
+            Visible: =storeinventorygroup
+            Width: =409
+            X: =115.5
+            Y: =16.417910447761194
+            ZIndex: =19
+
+        TextBox1_11 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, .6)
+            Font: =Font.Lato
+            Height: =57
+            HoverBorderColor: =TextBox1_11.BorderColor
+            HoverColor: =TextBox1_11.Color
+            HoverFill: =TextBox1_11.Fill
+            PressedBorderColor: =TextBox1_11.BorderColor
+            PressedColor: =TextBox1_11.Color
+            PressedFill: =TextBox1_11.Fill
+            Size: =20
+            Text: =Text(Today(),"mmm dd, yyyy")
+            Tooltip: =Navigate(MainScreen)
+            Visible: =storeinventorygroup
+            Width: =409
+            X: =115.5
+            Y: =61.19402985074626
+            ZIndex: =20
+
+    icon2_1 As icon.Cancel:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 0.8)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =icon2_1.Fill
+        Height: =53
+        HoverBorderColor: =ColorFade(icon2_1.BorderColor, 20%)
+        HoverColor: =ColorFade(icon2_1.Color, 20%)
+        HoverFill: =icon2_1.Fill
+        Icon: =Icon.Cancel
+        OnSelect: |-
+            =Clear(SearchRecord); UpdateContext({storeinventorygroup:true});UpdateContext({searchgroup:false});UpdateContext({productsearch:true});UpdateContext({productsearch:false})
+        PressedBorderColor: =ColorFade(icon2_1.BorderColor, -20%)
+        PressedColor: =ColorFade(icon2_1.Color, -20%)
+        PressedFill: =icon2_1.Fill
+        TabIndex: =0
+        Visible: =searchgroup
+        Width: =53
+        X: =557
+        Y: =38
+        ZIndex: =22
+
+    ProductSearchBox As text:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(255, 255, 255, .3)
+        BorderThickness: =3
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =If(!IsBlank(First(SearchRecord).Value), First(SearchRecord).Value, "")
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =3
+        Font: =Font.Lato
+        Height: =75
+        HintText: ="Search a product"
+        HoverBorderColor: =ProductSearchBox.BorderColor
+        HoverColor: =Color.White
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PaddingLeft: =41
+        PaddingRight: =40
+        PaddingTop: =3
+        PressedBorderColor: =ProductSearchBox.HoverBorderColor
+        PressedColor: =ProductSearchBox.Color
+        PressedFill: =ProductSearchBox.Fill
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Reset: =productsearch
+        Size: =25
+        Visible: =searchgroup
+        Width: =507.761194029851
+        X: =29.850746268656735
+        Y: =27.9402985074627
+        ZIndex: =23
+
+    Image2 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =43
+        HoverBorderColor: =ColorFade(Image2.BorderColor, 20%)
+        HoverFill: =ColorFade(Image2.Fill, 20%)
+        Image: =menu_96px_2
+        OnSelect: =ClearCollect(StockView,"List")
+        PressedBorderColor: =ColorFade(Image2.BorderColor, -20%)
+        PressedFill: =ColorFade(Image2.Fill, -20%)
+        Visible: =First(StockView).Value="Grid"
+        Width: =43
+        X: =490
+        Y: =150
+        ZIndex: =24
+
+    Image3 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =43
+        HoverBorderColor: =ColorFade(Image3.BorderColor, 20%)
+        HoverFill: =ColorFade(Image3.Fill, 20%)
+        Image: =menu_96px
+        PressedBorderColor: =ColorFade(Image3.BorderColor, -20%)
+        PressedFill: =ColorFade(Image3.Fill, -20%)
+        Visible: =First(StockView).Value="List"
+        Width: =43
+        X: =490
+        Y: =150
+        ZIndex: =25
+
+    Button2 As button:
+        Height: =46
+        OnSelect: =Navigate(MainScreen)
+        Size: =24
+        Text: ="Home"
+        Width: =139
+        X: =18
+        Y: =15
+        ZIndex: =26
+

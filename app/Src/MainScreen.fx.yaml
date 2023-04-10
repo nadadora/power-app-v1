@@ -1,0 +1,176 @@
+MainScreen As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: |-
+        =ClearCollect(ProductCollect, AddColumns(Product, "Stock", Round(DefaultSellingQuantity*Rand()*10,0)));
+        ClearCollect(Products, AddColumns(ProductCollect, "SortStock", (DefaultSellingQuantity/Stock)*100));
+        Clear(SearchRecord)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1.Fill
+        Fill: =RGBA(47,61,75,1)
+        Height: =1136
+        HoverFill: =Rectangle1.Fill
+        PressedFill: =Rectangle1.Fill
+        Width: =640
+        ZIndex: =1
+
+    TextBox1 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Lato Black'
+        Height: =255
+        HoverBorderColor: =TextBox1.BorderColor
+        HoverColor: =TextBox1.Color
+        HoverFill: =TextBox1.Fill
+        LineHeight: =0.9
+        PressedBorderColor: =TextBox1.BorderColor
+        PressedColor: =TextBox1.Color
+        PressedFill: =TextBox1.Fill
+        Size: =60
+        Text: ="Dashboard"
+        Width: =425
+        X: =115.5
+        Y: =124
+        ZIndex: =2
+
+    Image1 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =127.09064184223416
+        HoverBorderColor: =ColorFade(Image1.BorderColor, 20%)
+        HoverFill: =ColorFade(Image1.Fill, 20%)
+        Image: ='logo@3x'
+        PressedBorderColor: =ColorFade(Image1.BorderColor, -20%)
+        PressedFill: =ColorFade(Image1.Fill, -20%)
+        Width: =161.31343283582083
+        X: =239
+        Y: =57
+        ZIndex: =3
+
+    MainSearchText As text:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(255, 255, 255, .3)
+        BorderThickness: =3
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =""
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =3
+        Font: =Font.Lato
+        Height: =97
+        HintText: ="Search a server"
+        HoverBorderColor: =MainSearchText.BorderColor
+        HoverColor: =Color.White
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        OnChange: |-
+            =ClearCollect(SearchRecord, MainSearchText.Text);
+            Navigate(ListScreen,ScreenTransition.Fade)
+        PaddingLeft: =47
+        PaddingRight: =40
+        PaddingTop: =3
+        PressedBorderColor: =MainSearchText.HoverBorderColor
+        PressedColor: =MainSearchText.Color
+        PressedFill: =MainSearchText.Fill
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Reset: =If(IsBlank(ProductSearchBox.Text),true,false)
+        Size: =27
+        Width: =542.0895522388059
+        X: =49
+        Y: =790
+        ZIndex: =4
+
+    Button1 As button:
+        BorderColor: =ColorFade(Button1.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1.BorderColor, 70%)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(40,141,196,1)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Normal
+        Height: =97
+        HoverBorderColor: =ColorFade(Button1.BorderColor, 20%)
+        HoverColor: =Button1.Color
+        HoverFill: =ColorFade(Button1.Fill, 20%)
+        OnSelect: |-
+            =Clear(SearchRecord);
+            Navigate(ListScreen,ScreenTransition.Fade)
+        PressedBorderColor: =Button1.BorderColor
+        PressedColor: =Button1.Color
+        PressedFill: =Button1.Fill
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Size: =30
+        Text: ="View unhealthy servers"
+        Width: =542
+        X: =49
+        Y: =983.0447761194027
+        ZIndex: =5
+
+    icon1 As icon.Search:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =icon1.Fill
+        Height: =44
+        HoverBorderColor: =ColorFade(icon1.BorderColor, 20%)
+        HoverColor: =ColorFade(icon1.Color, 20%)
+        HoverFill: =icon1.Fill
+        Icon: =Icon.Search
+        OnSelect: |-
+            =ClearCollect(SearchRecord, MainSearchText.Text);
+            Navigate(ListScreen,ScreenTransition.Fade)
+        PressedBorderColor: =ColorFade(icon1.BorderColor, -20%)
+        PressedColor: =ColorFade(icon1.Color, -20%)
+        PressedFill: =icon1.Fill
+        TabIndex: =0
+        Width: =45
+        X: =524
+        Y: =816
+        ZIndex: =6
+
+    CompositePieChart1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =7
+
+        Title1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =24
+            Text: ="Server Status"
+            Width: =421
+            X: =103
+            Y: =341
+            ZIndex: =8
+
+        PieChart1 As pieChart:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =371
+            ItemColorSet: =[Color.Green, Color.Red]
+            Items: =DashboardMain
+            Width: =421
+            X: =103
+            Y: =369
+            ZIndex: =9
+
+        Legend1 As legend:
+            Height: =185
+            ItemColorSet: =PieChart1.ItemColorSet
+            Items: =PieChart1.SeriesLabels
+            Size: =16
+            Visible: =false
+            Width: =421
+            X: =103
+            Y: =740
+            ZIndex: =10
+

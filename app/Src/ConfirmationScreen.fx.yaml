@@ -1,0 +1,101 @@
+ConfirmationScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_1 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_1.Fill
+        Fill: =RGBA(40,141,196,1)
+        Height: =1136
+        HoverFill: =Rectangle1_1.Fill
+        PressedFill: =Rectangle1_1.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =1
+
+    TextBox1_9 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        Height: =255
+        HoverBorderColor: =TextBox1_9.BorderColor
+        HoverColor: =TextBox1_9.Color
+        HoverFill: =TextBox1_9.Fill
+        PressedBorderColor: =TextBox1_9.BorderColor
+        PressedColor: =TextBox1_9.Color
+        PressedFill: =TextBox1_9.Fill
+        Size: =50
+        Text: ="Order placed successfully"
+        Width: =475
+        X: =82.5
+        Y: =452
+        ZIndex: =2
+
+    Image1_1 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =127.090641842234
+        HoverBorderColor: =ColorFade(Image1_1.BorderColor, 20%)
+        HoverFill: =ColorFade(Image1_1.Fill, 20%)
+        Image: =check_white
+        PressedBorderColor: =ColorFade(Image1_1.BorderColor, -20%)
+        PressedFill: =ColorFade(Image1_1.Fill, -20%)
+        Width: =161.313432835821
+        X: =240
+        Y: =325
+        ZIndex: =3
+
+    Button1_3 As button:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =3
+        DisabledBorderColor: =ColorFade(Button1_3.BorderColor, 70%)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Normal
+        Height: =97
+        HoverBorderColor: =ColorFade(Button1_3.BorderColor, 20%)
+        HoverColor: =Button1_3.Color
+        HoverFill: =ColorFade(Button1_3.Fill, 20%)
+        OnSelect: |-
+            =Launch("mailto:"&User().Email&"?subject=Restock&body=Product Name: "&ProductNameText.Text& "%0D%0A"&"Description: "&DescriptionText.Text& "%0D%0A"&"Order Quantity: "&OrderQuantityText.Text& "%0D%0A"&"Total Amount: "&TotalAmountText.Text)
+        PressedBorderColor: =Button1_3.Fill
+        PressedColor: =Button1_3.Fill
+        PressedFill: =Button1_3.Color
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Size: =30
+        Text: ="Email"
+        Width: =255
+        X: =49
+        Y: =983.0447761194027
+        ZIndex: =4
+
+    Button1_4 As button:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =3
+        DisabledBorderColor: =ColorFade(Button1_4.BorderColor, 70%)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Normal
+        Height: =97
+        HoverBorderColor: =ColorFade(Button1_4.BorderColor, 20%)
+        HoverColor: =Button1_4.Color
+        HoverFill: =ColorFade(Button1_4.Fill, 20%)
+        OnSelect: =Navigate(ListScreen,ScreenTransition.Fade)
+        PressedBorderColor: =Button1_4.Fill
+        PressedColor: =Button1_4.Fill
+        PressedFill: =Button1_4.Color
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Size: =30
+        Text: ="Home"
+        Width: =255
+        X: =332
+        Y: =983
+        ZIndex: =5
+

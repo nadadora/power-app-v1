@@ -1,0 +1,606 @@
+ProductDetailsScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: |-
+        =UpdateContext({resetvalue:true});UpdateContext({resetvalue:false})
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Group1_5 As group:
+        Height: =47
+        Width: =144
+        X: =324
+        Y: =440
+        ZIndex: =1
+
+        Rectangle2_17 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2_17.Fill
+            Fill: =RGBA(220,55,57,1)
+            Height: =40.0298507462686
+            HoverFill: =Rectangle2_17.Fill
+            PressedFill: =Rectangle2_17.Fill
+            TabIndex: =0
+            Visible: =false
+            Width: =144
+            X: =324
+            Y: =444.402985074627
+            ZIndex: =12
+
+        TextBox1_36 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =47
+            HoverBorderColor: =TextBox1_36.BorderColor
+            HoverColor: =TextBox1_36.Color
+            HoverFill: =TextBox1_36.Fill
+            PressedBorderColor: =TextBox1_36.BorderColor
+            PressedColor: =TextBox1_36.Color
+            PressedFill: =TextBox1_36.Fill
+            Size: =16
+            Text: ="Low"
+            Visible: =false
+            Width: =132
+            X: =330
+            Y: =440
+            ZIndex: =13
+
+    Rectangle2_12 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_12.Fill
+        Fill: =RGBA(47,61,75,1)
+        Height: =129
+        HoverFill: =Rectangle2_12.Fill
+        PressedFill: =Rectangle2_12.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =2
+
+    TextBox1_20 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        Height: =129
+        HoverBorderColor: =TextBox1_20.BorderColor
+        HoverColor: =TextBox1_20.Color
+        HoverFill: =TextBox1_20.Fill
+        PressedBorderColor: =TextBox1_20.BorderColor
+        PressedColor: =TextBox1_20.Color
+        PressedFill: =TextBox1_20.Fill
+        Size: =30
+        Text: ="Product details"
+        Width: =409
+        X: =115.5
+        ZIndex: =3
+
+    Rectangle3_3 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle3_3.Fill
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =87
+        HoverFill: =Rectangle3_3.Fill
+        PressedFill: =Rectangle3_3.Fill
+        TabIndex: =0
+        Width: =89.16417910447751
+        X: =102
+        Y: =129
+        ZIndex: =4
+
+    Rectangle2_13 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_13.Fill
+        Fill: =RGBA(240,240,240,1)
+        Height: =281.80767587515026
+        HoverFill: =Rectangle2_13.Fill
+        PressedFill: =Rectangle2_13.Fill
+        TabIndex: =0
+        Width: =640
+        Y: =129
+        ZIndex: =5
+
+    Image4 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =161.42303936298083
+        HoverBorderColor: =ColorFade(Image4.BorderColor, 20%)
+        HoverFill: =ColorFade(Image4.Fill, 20%)
+        Image: ='Property Image'
+        PressedBorderColor: =ColorFade(Image4.BorderColor, -20%)
+        PressedFill: =ColorFade(Image4.Fill, -20%)
+        Width: =161.42303936298083
+        X: =34
+        Y: =165
+        ZIndex: =6
+
+    ProductNameText As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(47, 47, 47, 1)
+        Font: =Font.Lato
+        Height: =112
+        HoverBorderColor: =ProductNameText.BorderColor
+        HoverColor: =ProductNameText.Color
+        HoverFill: =ProductNameText.Fill
+        PressedBorderColor: =ProductNameText.BorderColor
+        PressedColor: =ProductNameText.Color
+        PressedFill: =ProductNameText.Fill
+        Size: =30
+        Text: =First(productrecord).ProductName
+        VerticalAlign: =VerticalAlign.Top
+        Width: =394.90386728140026
+        X: =220.09613271859973
+        Y: =165
+        ZIndex: =7
+
+    TextBox1_29 As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(47, 47, 47, 1)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Semibold
+        Height: =63.34617732121387
+        HoverBorderColor: =TextBox1_29.BorderColor
+        HoverColor: =TextBox1_29.Color
+        HoverFill: =TextBox1_29.Fill
+        PressedBorderColor: =TextBox1_29.BorderColor
+        PressedColor: =TextBox1_29.Color
+        PressedFill: =TextBox1_29.Fill
+        Size: =30
+        Text: =First(productrecord).SELLINGUNITPRICECURRENCY_CURRENCYCODE &" "& First(productrecord).SellingUnitPrice&"/unit"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =394.90386728140026
+        X: =220.09613271859973
+        Y: =274.8461538461538
+        ZIndex: =8
+
+    DescriptionText As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(128, 128, 128, 1)
+        Font: =Font.Lato
+        Height: =47.11534470778247
+        HoverBorderColor: =DescriptionText.BorderColor
+        HoverColor: =DescriptionText.Color
+        HoverFill: =DescriptionText.Fill
+        PressedBorderColor: =DescriptionText.BorderColor
+        PressedColor: =DescriptionText.Color
+        PressedFill: =DescriptionText.Fill
+        Size: =22
+        Text: =First(productrecord).Description
+        VerticalAlign: =VerticalAlign.Top
+        Width: =577.9423734224761
+        X: =28.230769230769233
+        Y: =339.7692307692307
+        ZIndex: =9
+
+    Rectangle2_16 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_16.Fill
+        Fill: =RGBA(204, 204, 204, 1)
+        Height: =2
+        HoverFill: =Rectangle2_16.Fill
+        PressedFill: =Rectangle2_16.Fill
+        TabIndex: =0
+        Width: =640
+        Y: =409
+        ZIndex: =10
+
+    TextBox1_31 As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(47, 47, 47, 1)
+        Font: =Font.Lato
+        Height: =56
+        HoverBorderColor: =TextBox1_31.BorderColor
+        HoverColor: =TextBox1_31.Color
+        HoverFill: =TextBox1_31.Fill
+        PressedBorderColor: =TextBox1_31.BorderColor
+        PressedColor: =TextBox1_31.Color
+        PressedFill: =TextBox1_31.Fill
+        Size: =30
+        Text: ="Inventory level"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =290
+        X: =34
+        Y: =436.84615384615404
+        ZIndex: =11
+
+    Rectangle2_18 As rectangle:
+        BorderColor: =RGBA(179, 179, 179, 1)
+        BorderThickness: =2
+        DisabledFill: =Rectangle2_18.Fill
+        Fill: =RGBA(240,240,240,1)
+        Height: =141.82694655198315
+        HoverFill: =Rectangle2_18.Fill
+        PressedFill: =Rectangle2_18.Fill
+        TabIndex: =0
+        Width: =570.5000305175782
+        X: =34.74998474121088
+        Y: =509.4615384615388
+        ZIndex: =14
+
+    CurrentStock As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(47, 47, 47, 1)
+        Font: =Font.Lato
+        Height: =59.05882352941171
+        HoverBorderColor: =CurrentStock.BorderColor
+        HoverColor: =CurrentStock.Color
+        HoverFill: =CurrentStock.Fill
+        PressedBorderColor: =CurrentStock.BorderColor
+        PressedColor: =CurrentStock.Color
+        PressedFill: =CurrentStock.Fill
+        Size: =35
+        Text: =First(productrecord).DefaultSellingQuantity
+        VerticalAlign: =VerticalAlign.Top
+        Width: =141
+        X: =72
+        Y: =526.325791855204
+        ZIndex: =15
+
+    TextBox1_37 As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(128, 128, 128, 1)
+        Font: =Font.Lato
+        Height: =51
+        HoverBorderColor: =TextBox1_37.BorderColor
+        HoverColor: =TextBox1_37.Color
+        HoverFill: =TextBox1_37.Fill
+        PressedBorderColor: =TextBox1_37.BorderColor
+        PressedColor: =TextBox1_37.Color
+        PressedFill: =TextBox1_37.Fill
+        Size: =20
+        Text: ="Current stock"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =252
+        X: =72
+        Y: =585.325791855204
+        ZIndex: =16
+
+    IdealStockText As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(47, 47, 47, 1)
+        Font: =Font.Lato
+        Height: =62
+        HoverBorderColor: =IdealStockText.BorderColor
+        HoverColor: =IdealStockText.Color
+        HoverFill: =IdealStockText.Fill
+        PressedBorderColor: =IdealStockText.BorderColor
+        PressedColor: =IdealStockText.Color
+        PressedFill: =IdealStockText.Fill
+        Size: =35
+        Text: =First(productrecord).Stock 
+        VerticalAlign: =VerticalAlign.Top
+        X: =349
+        Y: =523.3846153846157
+        ZIndex: =17
+
+    TextBox1_39 As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(128, 128, 128, 1)
+        Font: =Font.Lato
+        Height: =51
+        HoverBorderColor: =TextBox1_39.BorderColor
+        HoverColor: =TextBox1_39.Color
+        HoverFill: =TextBox1_39.Fill
+        PressedBorderColor: =TextBox1_39.BorderColor
+        PressedColor: =TextBox1_39.Color
+        PressedFill: =TextBox1_39.Fill
+        Size: =20
+        Text: ="Ideal stock"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =252
+        X: =349
+        Y: =585.7179487179493
+        ZIndex: =18
+
+    TextBox1_33 As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(47, 47, 47, 1)
+        Font: =Font.Lato
+        Height: =56
+        HoverBorderColor: =TextBox1_33.BorderColor
+        HoverColor: =TextBox1_33.Color
+        HoverFill: =TextBox1_33.Fill
+        PressedBorderColor: =TextBox1_33.BorderColor
+        PressedColor: =TextBox1_33.Color
+        PressedFill: =TextBox1_33.Fill
+        Size: =30
+        Text: ="Order quantity"
+        VerticalAlign: =VerticalAlign.Top
+        Visible: =If(Value(IdealStockText.Text-CurrentStock.Text)<=0,false,true)
+        Width: =290
+        X: =34
+        Y: =688.1538461538466
+        ZIndex: =19
+
+    OrderQuantityText As text:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(204, 204, 204, 1)
+        BorderThickness: =3
+        Clear: =true
+        Color: =RGBA(47, 47, 47, 1)
+        Default: =Value(IdealStockText.Text-CurrentStock.Text)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =3
+        Font: =Font.Lato
+        Height: =97
+        HintText: =""
+        HoverBorderColor: =OrderQuantityText.BorderColor
+        HoverColor: =RGBA(47, 47, 47, 1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PaddingLeft: =47
+        PaddingTop: =3
+        PressedBorderColor: =OrderQuantityText.HoverBorderColor
+        PressedColor: =OrderQuantityText.Color
+        PressedFill: =OrderQuantityText.Fill
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Reset: =resetvalue
+        Size: =27
+        Visible: =If(Value(IdealStockText.Text-CurrentStock.Text)<=0,false,true)
+        Width: =570
+        X: =35
+        Y: =761.1538461538466
+        ZIndex: =20
+
+    Button1_1 As button:
+        BorderColor: =ColorFade(Button1_1.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1_1.BorderColor, 70%)
+        DisplayMode: =If(If(Value(OrderQuantityText.Text)<=0,true,false),DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(40,141,196,1)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Normal
+        Height: =97
+        HoverBorderColor: =ColorFade(Button1_1.BorderColor, 20%)
+        HoverColor: =Button1_1.Color
+        HoverFill: =ColorFade(Button1_1.Fill, 20%)
+        OnSelect: |-
+            =Patch(Products,LookUp(Products,ProductNumber=First(productrecord).ProductNumber),{DefaultSellingQuantity:Value(OrderQuantityText.Text+CurrentStock.Text)});Navigate(ConfirmationScreen,ScreenTransition.Fade)
+        PressedBorderColor: =Button1_1.Fill
+        PressedColor: =Button1_1.Fill
+        PressedFill: =Button1_1.Color
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Size: =30
+        Text: ="Restock"
+        Width: =572
+        X: =34
+        Y: =1011.8909299655565
+        ZIndex: =21
+
+    TextBox1_34 As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(47, 47, 47, 1)
+        Font: =Font.Lato
+        Height: =56
+        HoverBorderColor: =TextBox1_34.BorderColor
+        HoverColor: =TextBox1_34.Color
+        HoverFill: =TextBox1_34.Fill
+        PressedBorderColor: =TextBox1_34.BorderColor
+        PressedColor: =TextBox1_34.Color
+        PressedFill: =TextBox1_34.Fill
+        Size: =30
+        Text: ="Total"
+        VerticalAlign: =VerticalAlign.Top
+        Visible: =If(Value(IdealStockText.Text-CurrentStock.Text)<=0,false,true)
+        Width: =290
+        X: =28
+        Y: =892.846153846154
+        ZIndex: =23
+
+    TotalAmountText As label:
+        Align: =TextPosition.Right
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(47, 47, 47, 1)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Semibold
+        Height: =74.69230769230796
+        HoverBorderColor: =TotalAmountText.BorderColor
+        HoverColor: =TotalAmountText.Color
+        HoverFill: =TotalAmountText.Fill
+        PressedBorderColor: =TotalAmountText.BorderColor
+        PressedColor: =TotalAmountText.Color
+        PressedFill: =TotalAmountText.Fill
+        Size: =37
+        Text: =Value(OrderQuantityText.Text)*First(productrecord).SellingUnitPrice & " " & First(productrecord).SELLINGUNITPRICECURRENCY_CURRENCYCODE
+        VerticalAlign: =VerticalAlign.Top
+        Visible: =If(Value(IdealStockText.Text-CurrentStock.Text)<=0,false,true)
+        Width: =401.84615384615404
+        X: =195
+        Y: =886.1794871794875
+        ZIndex: =24
+
+    Rectangle2_19 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_19.Fill
+        Fill: =RGBA(220,55,57,1)
+        Height: =40
+        HoverFill: =Rectangle2_19.Fill
+        OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+        PressedFill: =Rectangle2_19.Fill
+        TabIndex: =0
+        Visible: =If((First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100=0,true,false)
+        Width: =145
+        X: =474
+        Y: =436
+        ZIndex: =25
+
+    TextBox1_43 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =TextBox1_43.BorderColor
+        HoverColor: =TextBox1_43.Color
+        HoverFill: =TextBox1_43.Fill
+        OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+        PressedBorderColor: =TextBox1_43.BorderColor
+        PressedColor: =TextBox1_43.Color
+        PressedFill: =TextBox1_43.Fill
+        Size: =16
+        Text: ="Out of stock"
+        Visible: =If((First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100=0,true,false)
+        Width: =140.689805086588
+        X: =474
+        Y: =435
+        ZIndex: =26
+
+    Rectangle2_33 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_33.Fill
+        Fill: =RGBA(99, 139, 44, 1)
+        Height: =40.0298507462686
+        HoverFill: =Rectangle2_33.Fill
+        PressedFill: =Rectangle2_33.Fill
+        TabIndex: =0
+        Visible: =If((First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100>70,true,false)
+        Width: =146.806753133831
+        X: =468
+        Y: =446
+        ZIndex: =27
+
+    GoodText_3 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =GoodText_3.BorderColor
+        HoverColor: =GoodText_3.Color
+        HoverFill: =GoodText_3.Fill
+        OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+        PressedBorderColor: =GoodText_3.BorderColor
+        PressedColor: =GoodText_3.Color
+        PressedFill: =GoodText_3.Fill
+        Size: =16
+        Text: ="Good"
+        Visible: =If((First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100>70,true,false)
+        Width: =140.689805086588
+        X: =471
+        Y: =447
+        ZIndex: =28
+
+    Rectangle2_34 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_34.Fill
+        Fill: =RGBA(134, 133, 134, 1)
+        Height: =40.0298507462686
+        HoverFill: =Rectangle2_34.Fill
+        PressedFill: =Rectangle2_34.Fill
+        TabIndex: =0
+        Visible: =If((First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100>=31&&(First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100<=70,true,false)
+        Width: =146.806753133831
+        X: =468
+        Y: =444
+        ZIndex: =29
+
+    AverageText_3 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =AverageText_3.BorderColor
+        HoverColor: =AverageText_3.Color
+        HoverFill: =AverageText_3.Fill
+        PressedBorderColor: =AverageText_3.BorderColor
+        PressedColor: =AverageText_3.Color
+        PressedFill: =AverageText_3.Fill
+        Size: =16
+        Text: ="Average"
+        Visible: =If((First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100>=31&&(First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100<=70,true,false)
+        Width: =140.689805086588
+        X: =471
+        Y: =444
+        ZIndex: =30
+
+    Rectangle2_35 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_35.Fill
+        Fill: =RGBA(220,55,57,1)
+        Height: =40.0298507462686
+        HoverFill: =Rectangle2_35.Fill
+        PressedFill: =Rectangle2_35.Fill
+        TabIndex: =0
+        Visible: =If((First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100>=1&&(First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100<=30,true,false)
+        Width: =146.806753133831
+        X: =468
+        Y: =444
+        ZIndex: =31
+
+    LowText_3 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =LowText_3.BorderColor
+        HoverColor: =LowText_3.Color
+        HoverFill: =LowText_3.Fill
+        PressedBorderColor: =LowText_3.BorderColor
+        PressedColor: =LowText_3.Color
+        PressedFill: =LowText_3.Fill
+        Size: =16
+        Text: ="Low"
+        Visible: |-
+            =
+            If((First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100>=1&&(First(productrecord).DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=First(productrecord).ProductNumber,Stock))*100<=30,true,false)
+        Width: =140.689805086588
+        X: =471
+        Y: =445
+        ZIndex: =32
+
+    Group6 As group:
+        Height: =130
+        Width: =130
+        X: =0
+        Y: =0
+        ZIndex: =33
+
+        Rectangle2 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =130
+            HoverFill: =Rectangle2.Fill
+            OnSelect: =Navigate(ListScreen,ScreenTransition.Fade)
+            PressedFill: =Rectangle2.Fill
+            TabIndex: =0
+            Width: =130
+            ZIndex: =34
+
+        icon3 As icon.ChevronLeft:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 0.8)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon3.Fill
+            Height: =52.75000469501197
+            HoverBorderColor: =ColorFade(icon3.BorderColor, 20%)
+            HoverColor: =ColorFade(icon3.Color, 20%)
+            HoverFill: =icon3.Fill
+            Icon: =Icon.ChevronLeft
+            OnSelect: =Navigate(ListScreen,ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon3.BorderColor, -20%)
+            PressedColor: =ColorFade(icon3.Color, -20%)
+            PressedFill: =icon3.Fill
+            TabIndex: =0
+            Width: =52.75000469501197
+            X: =34.23076923076924
+            Y: =40
+            ZIndex: =35
+

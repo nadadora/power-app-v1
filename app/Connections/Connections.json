@@ -1,0 +1,34 @@
+{
+  "3402c39a-2c3e-4f8a-96dc-a903b5af0876": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1623/1.0.1623.3210/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://captechventuresinc.sharepoint.com/sites/PowerPlatformTraining": {
+        "dataSources": {
+          "DashboardList": {
+            "tableName": "816c01d6-129c-4438-9d02-d21d5ff2f838"
+          },
+          "DashboardMain": {
+            "tableName": "fe5877d9-000c-4afb-ab31-756703f74b53"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "DashboardMain",
+      "DashboardList"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "3402c39a-2c3e-4f8a-96dc-a903b5af0876"
+  }
+}
