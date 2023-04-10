@@ -81,8 +81,8 @@ MainScreen As screen:
         Reset: =If(IsBlank(ProductSearchBox.Text),true,false)
         Size: =27
         Width: =542.0895522388059
-        X: =49
-        Y: =790
+        X: =48
+        Y: =860
         ZIndex: =4
 
     Button1 As button:
@@ -133,7 +133,7 @@ MainScreen As screen:
         TabIndex: =0
         Width: =45
         X: =524
-        Y: =816
+        Y: =886
         ZIndex: =6
 
     CompositePieChart1 As group:
